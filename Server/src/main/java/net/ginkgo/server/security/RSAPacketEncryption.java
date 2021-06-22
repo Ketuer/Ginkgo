@@ -4,7 +4,6 @@ import net.ginkgo.server.core.GinkgoSessionManager;
 import net.ginkgo.server.entity.PacketHandshake;
 
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Arrays;
@@ -12,10 +11,10 @@ import java.util.Arrays;
 /**
  * RSA 非对称加密算法（默认）
  *
- *   Server             Client
- *    生成 --> 发布公钥 --> 公钥
- *  私钥(加密)   -->    公钥(解密)
- *  私钥(解密)   <--    公钥(加密)
+ *   Server            Client
+ *    生成 -- 发布公钥 -- 公钥
+ *  私钥(加密)   --    公钥(解密)
+ *  私钥(解密)   --    公钥(加密)
  */
 public class RSAPacketEncryption extends AbstractPacketEncryption{
 
@@ -49,7 +48,7 @@ public class RSAPacketEncryption extends AbstractPacketEncryption{
     }
 
     /**
-     * 公钥加密 -> 私钥解密
+     * 公钥加密 - 私钥解密
      * @param bytes 密文
      * @return 明文
      */
